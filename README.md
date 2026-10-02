@@ -8,7 +8,7 @@ Receive IM notifications on Discord via a webhook. This bot fetches notification
 
    ```bash
    git clone https://github.com/jxpsert/imbot.git
-    cd imbot
+   cd imbot
     ```
 
 2. Install dependencies:
