@@ -5,6 +5,11 @@ const WFS_POLL_RATE = process.env.IM_WFS_POLL_RATE; // in seconds
 const QUERY_CITIES = process.env.IM_QUERY_CITIES ? process.env.IM_QUERY_CITIES.split(',') : [];
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
+if (!WFS_HOST || !WFS_POLL_RATE || !WEBHOOK_URL) {
+    console.error('Missing required environment variables. Please check your .env file.');
+    process.exit(1);
+}
+
 console.log(`IM bot started: pulling from "${WFS_HOST}" every ${WFS_POLL_RATE} seconds.`);
 console.log(`Watching cities: ${QUERY_CITIES.length > 0 ? QUERY_CITIES.join(', ') : '-'}`);
 
