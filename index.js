@@ -96,8 +96,6 @@ function spreadMelding(melding) {
         ? `${melding.bps.trim()}${melding.photon.city ? ` (${melding.photon.city})` : ''}`
         : `${melding.photon.name}${melding.photon.city ? `, ${melding.photon.city}` : ''}`;
 
-    const aankomst = melding.aankomst !== "Onbek" ? melding.aankomst.substring(0, 5) : 'Onbekend';
-
     const embed = {
         title: `${melding.incident_type} — ${melding.meldnr}`,
         description: `**${location}**`,
@@ -118,8 +116,8 @@ function spreadMelding(melding) {
                 inline: true
             },
             {
-                name: 'Verwacht',
-                value: aankomst,
+                name: 'Melder',
+                value: melding.melder || 'Onbekend',
                 inline: true
             }
         ],
