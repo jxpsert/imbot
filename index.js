@@ -135,7 +135,7 @@ function spreadMelding(melding) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            content: `||${melding.incident_type} — ${location}||`,
+            content: `${melding.incident_type} — ${location}`,
             embeds: [embed]
         })
     })
