@@ -96,8 +96,11 @@ function spreadMelding(melding) {
         ? `${melding.bps.trim()}${melding.photon.city ? ` (${melding.photon.city})` : ''}`
         : `${melding.photon.name}${melding.photon.city ? `, ${melding.photon.city}` : ''}`;
 
+    const osmUrl = `https://www.openstreetmap.org/?mlat=${melding.latitude}&mlon=${melding.longitude}#map=18/${melding.latitude}/${melding.longitude}`;
+
     const embed = {
         title: `${melding.incident_type} — ${melding.meldnr}`,
+        url: osmUrl,
         description: `**${location}**`,
         color: melding.incident_type === 'Ongeval'
             ? 0xED4245
@@ -132,6 +135,7 @@ function spreadMelding(melding) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            content: `||${melding.incident_type} — ${location}||`,
             embeds: [embed]
         })
     })
